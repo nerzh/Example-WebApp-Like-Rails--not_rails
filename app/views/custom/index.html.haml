@@ -1,0 +1,25 @@
+!!!
+
+
+/ %html
+/   %head
+/     %title
+/       WEB page
+/   %body
+/     #container
+/       %h1
+/         We can load HTML! Wow!
+
+
+%html
+  %head
+    %title WEB page
+  %body
+    #container
+      %h1
+        You said
+        = @word
+      %p Say somthing new
+      %form{:action => "/update_word", :method => "post"}
+        %input{:name => "word", :type => "text"}
+          %input{:type => "submit", :value => "Say!"}
