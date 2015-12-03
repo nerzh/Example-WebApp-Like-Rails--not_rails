@@ -5,6 +5,9 @@ gem 'game_codebreaker'
 gem 'rack'
 gem 'puma'
 gem 'haml'
+gem 'activerecord', '~> 4.2', '>= 4.2.5'
+gem 'yaml'
+gem 'mysql2', '~> 0.3.18'
 
 group :test do
   gem 'rspec'

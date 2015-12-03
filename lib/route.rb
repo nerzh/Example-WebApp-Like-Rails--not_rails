@@ -1,8 +1,9 @@
 require File.join(File.dirname(__FILE__), '..', 'app', 'controllers', 'base_controller')
+# require File.join(File.dirname(__FILE__), '..', 'lib', 'http')
 
 class Route
   attr_accessor :klass_name, :path, :instance_method
-  def initialize route_hash
+  def initialize(route_hash)
     @path            = route_hash[:path]
     @klass_name      = route_hash[:klass]
     @instance_method = route_hash[:method]

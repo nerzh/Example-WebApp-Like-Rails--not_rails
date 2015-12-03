@@ -1,4 +1,4 @@
-RackerApplication.router.config do
+InstanceRoute.get_route.config do
   get "/index", :to => "custom#index"
-  # get /.*/, :to => "custom#show"
+  get "/show", :to => "custom#show"
 end

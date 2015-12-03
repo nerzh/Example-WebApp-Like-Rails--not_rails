@@ -13,3 +13,4 @@
 /dump
 /.byebug_history
 /shared
+/config/database.yml

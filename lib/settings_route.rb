@@ -1,23 +1,29 @@
 require File.join(File.dirname(__FILE__), 'route')
 
-class Router
+class SettingsRoute
   attr_reader :routes
 
   def initialize
     @routes = Hash.new({})
   end
 
-  def config &block
-    instance_eval &block
+  def config(&block)
+    instance_eval(&block)
   end
 
-  def get path, options = {}
-    @routes[:get][path] = {}
-    @routes[:get][path][:path] = path
-    @routes[:get][path] = parse_to(options[:to])
+  def get(path, options = {})
+    routes[:get][path]        = {}
+    routes[:get][path][:path] = path
+    routes[:get][path]        = parse_to(options[:to])
   end
 
-  def route_for env
+  def post(path, options = {})
+    routes[:post][path]        = {}
+    routes[:post][path][:path] = path
+    routes[:post][path]        = parse_to(options[:to])
+  end
+
+  def route_for(env)
     path   = env["PATH_INFO"]
     method = env["REQUEST_METHOD"].downcase.to_sym
     routes[method].each do |routes_path, value|
@@ -32,8 +38,8 @@ class Router
   end
 
   private
-  def parse_to to_string
+  def parse_to(to_string)
     klass, method = to_string.split("#")
-    {:klass => klass.capitalize, :method => method}
+    {klass: klass.capitalize, method: method}
   end
 end
