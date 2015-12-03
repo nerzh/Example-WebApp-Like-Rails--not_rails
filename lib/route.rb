@@ -11,7 +11,7 @@ class Route
   end
 
   def klass
-    Module.const_get(klass_name)
+    Module.const_get(klass_name + 'Controller')
   end
 
   def execute(env)
@@ -19,6 +19,6 @@ class Route
   end
 
   def handle_requires
-    require File.join(File.dirname(__FILE__), '../', 'app', 'controllers', "#{klass_name.downcase}" )
+    require File.join(File.dirname(__FILE__), '../', 'app', 'controllers', "#{klass_name.downcase}_controller" )
   end
 end

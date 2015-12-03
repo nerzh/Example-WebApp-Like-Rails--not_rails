@@ -5,27 +5,23 @@ require_relative '../models/user'
 require_relative '../models/story'
 
 class BaseController
-  attr_reader :env, :request, :response
+  attr_reader :env, :request, :response, :game
 
   def initialize(env)
     @env = env
     @request  = Rack::Request.new(env)
     @response = Rack::Response.new
+    
     dbconfig = YAML::load(File.open(File.join(File.dirname(__FILE__), '..', '..', 'config', 'database.yml')))
     ActiveRecord::Base.logger = Logger.new(STDERR)
     ActiveRecord::Base.establish_connection(dbconfig['development'])
+
+    @game = @request.session[:game] if @request.session[:game].class == GameCodebreaker::Game
   end
 
-  # def render(template = '')
-  #   name_controller = self.class.to_s.downcase
-  #   template = caller_locations.first.label if template == ''
-  #   path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
-  #   response.body = [Haml::Engine.new(File.read(path)).render(binding)]
-  #   response
-  # end
-
   def render(template = '')
-    name_controller = self.class.to_s.downcase
+    self.class.to_s.downcase =~ /^(.+)controller$/
+    name_controller = $1
     template = caller_locations.first.label if template == ''
     path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
     path_layout = File.expand_path("../../views/layout.html.haml", __FILE__)

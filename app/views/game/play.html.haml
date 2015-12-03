@@ -1,0 +1,6 @@
+.play
+  %form(name="form_enter_code" action="/guess")
+    %input.form-control(name="enter_code" pattern="[1-6]{#{@length}}" require autofocus)
+    %button.btn.btn-success(type="submit") Enter
+  = @result
+  = @turns

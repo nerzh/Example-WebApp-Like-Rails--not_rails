@@ -1,7 +1,7 @@
 class Custom < BaseController
   def index
     @word = "FUCKING INSTANCE VARIABLE"
-    # @word = request.session[:huy].code
+    @word = request.session[:huy].code
     # @word = "#{User.all}"
     render
     # byebug
@@ -12,8 +12,8 @@ class Custom < BaseController
   def show
     byebug
     # User.create(name:"Oleg", surname: "Gudeychuk", age: 27)
-    @z = request.session[:h].length
-    # @z = User.all.first.name
+    @zal = request.session[:huy].length
+    # @zal = User.all.first.name
     render
     # @request = Rack::Request.new(env)
 

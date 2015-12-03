@@ -1,0 +1,83 @@
+html
+{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+body
+{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("/images/todo_background.png");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+}
+.row
+{
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.column
+{
+    display: table-cell;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+}
+.content
+{
+    width: 100%;
+    max-width: 620px;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+}
+.main
+{
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    -webkit-flex-wrap: wrap;
+    -webkit-align-content: flex-start;
+    -webkit-overflow-wrap: break-word;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-wrap: break-word;
+    border-radius: 15px 15px 15px 15px;
+    border: 3px solid #264276;
+    background-color: white;
+}
+.main-content-title
+{
+    margin-bottom: 50px;
+}
+form[name="form_enter_code"]
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+input[name="enter_code"]
+{
+    margin-right: 20px;
+}

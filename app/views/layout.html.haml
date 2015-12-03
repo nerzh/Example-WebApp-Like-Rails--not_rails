@@ -1,5 +1,13 @@
 !!!
-.html
-  .body
-    "SUPER"
-    = yield
+%html
+  %head
+    %title
+      "CODEBREAKER FOR RUBYGARAGE"
+    %link(rel="stylesheet" type="text/css" href="/css/application.css")
+    %link(rel="stylesheet" type="text/css" href="/css/bootstrap.min.css")
+  %body
+    .row
+      .column
+        .content
+          .main
+            = yield
