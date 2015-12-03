@@ -16,11 +16,21 @@ class BaseController
     ActiveRecord::Base.establish_connection(dbconfig['development'])
   end
 
+  # def render(template = '')
+  #   name_controller = self.class.to_s.downcase
+  #   template = caller_locations.first.label if template == ''
+  #   path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
+  #   response.body = [Haml::Engine.new(File.read(path)).render(binding)]
+  #   response
+  # end
+
   def render(template = '')
     name_controller = self.class.to_s.downcase
     template = caller_locations.first.label if template == ''
     path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
-    response.body = [Haml::Engine.new(File.read(path)).render(binding)]
+    path_layout = File.expand_path("../../views/layout.html.haml", __FILE__)
+    block = lambda{ Haml::Engine.new(File.read(path)).render(binding) }
+    response.body = [ Haml::Engine.new(File.read(path_layout)).render {block.call} ]
     response
   end
 
