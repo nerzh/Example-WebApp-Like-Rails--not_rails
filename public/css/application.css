@@ -44,7 +44,6 @@ body
 }
 .main
 {
-
     display: -webkit-flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: center;
@@ -132,4 +131,20 @@ control
     align-items: stretch;
 
     margin-top: 20px;
+}
+hint
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+.play
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

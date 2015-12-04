@@ -32,6 +32,7 @@ class GameController < BaseController
     @length  = game.length
     @turns   = game.level - game.turns
     @hint    = game.hint
+    @hints   = game.hints
     @history = game.history
     render
   end
@@ -45,13 +46,11 @@ class GameController < BaseController
 
   def hint
     game.get_hint
-    response.body = [game.hints.last]
-    response
+    redirect '/play'
   end
 
   def result
-    return redirect '/' unless game
-    return redirect '/' unless game.game_over?
+    play_if_game_not_over
     @secret_code = game.code
     @history     = game.history
     @hint        = game.hint
@@ -61,9 +60,13 @@ class GameController < BaseController
   end
 
   def save
+    play_if_game_not_over    
+    render
+  end
+
+  def play_if_game_not_over
     return redirect '/' unless game
     return redirect '/' unless game.game_over?
-    render
   end
 
   def create
@@ -79,7 +82,7 @@ class GameController < BaseController
       @story = Story.new(secret_code: story[0], human_code: story[1], result: story[2])
       @sgame.stories << @story
     end
-    
+
     @user.games << @sgame
     @user.save!
 
