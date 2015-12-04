@@ -1,13 +1,13 @@
 class Game < ActiveRecord::Migration
   def self.up
     create_table :games do |t|
-      t.string :code
+      t.string  :code
       t.integer :length
       t.integer :level
+      t.string  :level_name
       t.integer :turns
       t.integer :hint
       t.boolean :win, default: false
-      t.integer :hints
     end
   end
  

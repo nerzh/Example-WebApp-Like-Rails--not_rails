@@ -1,0 +1,10 @@
+%user.main
+  %user-data
+    %form(name="form_save" action="/create" method="POST")
+      %input.form-control(name="name" pattern="[a-zA-Z]+" placeholder="Name" required autofocus)
+      %br
+      %input.form-control(name="surname" pattern="[a-zA-Z]+" placeholder="Surname" required)
+      %br
+      %input.form-control(name="age" pattern="[0-9]+" placeholder="Age" required)
+      %br
+      %button.btn.btn-primary(type="submit") Save

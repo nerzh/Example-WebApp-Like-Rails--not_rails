@@ -1,7 +1,8 @@
-.play
-  %form(name="form_enter_code" action="/guess")
-    %input.form-control(name="enter_code" pattern="[1-6]{#{@length}}" required autofocus)
-    %button.btn.btn-info(type="submit") Enter
+%result.main
+  %secret-code
+    = @secret_code
+  %message
+    = @mess
   %game-data.history
     %data-line.history-line
       %data-line.number Hint
@@ -15,6 +16,6 @@
         .number= arr[1]
         .result= arr[2] == '' ? 'nothing' : arr[2]
   %control
-    %a.button.btn.btn-primary(href="/hint") Get hint
+    %a.button.btn.btn-success(href="/save") Save
     %a.button.btn.btn-warning(href="/restart") Restart
     %a.button.btn.btn-danger(href="/exit") Exit

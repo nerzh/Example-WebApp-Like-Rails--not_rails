@@ -36,7 +36,7 @@ body
 .content
 {
     width: 100%;
-    max-width: 620px;
+    max-width: 500px;
     display: inline-block;
     text-align: left;
     margin-bottom: 20px;
@@ -44,9 +44,7 @@ body
 }
 .main
 {
-    width: 100%;
-    min-height: 500px;
-    position: relative;
+
     display: -webkit-flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: center;
@@ -62,13 +60,24 @@ body
     flex-wrap: wrap;
     align-content: flex-start;
     overflow-wrap: break-word;
+
     border-radius: 15px 15px 15px 15px;
     border: 3px solid #264276;
     background-color: white;
+    width: 100%;
+    min-height: 500px;
+    position: relative;
 }
 .main-content-title
 {
     margin-bottom: 50px;
+}
+form[name="form_start"]
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 form[name="form_enter_code"]
 {
@@ -80,4 +89,47 @@ form[name="form_enter_code"]
 input[name="enter_code"]
 {
     margin-right: 20px;
+}
+.history
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+
+    border-radius: 7px 7px 7px 7px;
+    border: 1px solid #C7C7C7;
+    width: 250px;
+    margin-top: 20px;
+}
+.history-line
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+.number
+{
+    display: flex;
+    justify-content: center;
+
+    width: 50%;
+}
+.result
+{
+    display: flex;
+    justify-content: center;
+
+    width: 50%;
+    letter-spacing: 3px;
+}
+control
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+
+    margin-top: 20px;
 }
