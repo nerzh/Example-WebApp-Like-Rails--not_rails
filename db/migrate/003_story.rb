@@ -4,6 +4,7 @@ class Story < ActiveRecord::Migration
       t.string :secret_code
       t.string :human_code
       t.string :result
+      t.integer :game_id
     end
   end
  

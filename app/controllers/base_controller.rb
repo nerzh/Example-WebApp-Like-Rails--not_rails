@@ -3,6 +3,7 @@ require 'active_record'
 require_relative '../models/game'
 require_relative '../models/user'
 require_relative '../models/story'
+require_relative '../models/hint'
 
 class BaseController
   attr_reader :env, :request, :response, :game

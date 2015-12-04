@@ -3,6 +3,7 @@ class Game < ActiveRecord::Migration
     create_table :games do |t|
       t.string  :code
       t.integer :length
+      t.integer :user_id
       t.integer :level
       t.string  :level_name
       t.integer :turns
