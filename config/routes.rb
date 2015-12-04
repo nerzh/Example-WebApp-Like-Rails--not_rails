@@ -9,4 +9,6 @@ InstanceRoute.get_route.config do
   get "/save",     to: "game#save"
   post "/create",  to: "game#create"
   get "/exit",     to: "game#exit"
+  get "/st_login", to: "statistic#st_login"
+  get "/show",     to: "statistic#show" 
 end

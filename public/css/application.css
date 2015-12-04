@@ -131,6 +131,7 @@ control
     align-items: stretch;
 
     margin-top: 20px;
+    min-width: 150px;
 }
 hint
 {

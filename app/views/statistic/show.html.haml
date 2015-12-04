@@ -1,0 +1,25 @@
+.statistic
+  .stat-data.history
+    .stat-line.history-line
+      %data-line.number Name
+      %data-line.number= @name
+    .stat-line.history-line
+      %data-line.number Surname
+      %data-line.number= @surname
+    .stat-line.history-line
+      %data-line.number Age
+      %data-line.number= @age
+    .stat-line.history-line
+      %data-line.number Total games
+      %data-line.number= @total_games
+    .stat-line.history-line
+      %data-line.number Total wins
+      %data-line.number= @total_wins
+    .stat-line.history-line
+      %data-line.number Total losses
+      %data-line.number= @total_losses
+    .stat-line.history-line
+      %data-line.number Average amount of turns
+      %data-line.number= @average_turns
+  %control
+    %a.button.btn.btn-danger(href="/exit") Exit

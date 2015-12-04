@@ -24,8 +24,10 @@ class BaseController
     self.class.to_s.downcase =~ /^(.+)controller$/
     name_controller = $1
     template = caller_locations.first.label if template == ''
+
     path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
     path_layout = File.expand_path("../../views/layout.html.haml", __FILE__)
+    
     block = lambda{ Haml::Engine.new(File.read(path)).render(binding) }
     response.body = [ Haml::Engine.new(File.read(path_layout)).render { block.call } ]
     response

@@ -1,0 +1,10 @@
+%st_login.main
+  %st_login-data
+    %form(name="form_show" action="/show" method="GET")
+      %input.form-control(name="name" pattern="[a-zA-Z]+" placeholder="Name" required autofocus)
+      %br
+      %input.form-control(name="surname" pattern="[a-zA-Z]+" placeholder="Surname" required)
+      %br
+      %control
+        %button.btn.btn-primary(type="submit") Show
+        %a.button.btn.btn-danger(href="/exit") Exit
