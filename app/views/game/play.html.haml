@@ -3,7 +3,7 @@
     %hint-value
       = hint
 .play
-  %form(name="form_enter_code" action="/guess")
+  %form(name="form_enter_code" action="/guess" method="GET")
     %input.form-control(name="enter_code" pattern="[1-6]{#{@length}}" required autofocus)
     %button.btn.btn-info(type="submit") Enter
   %game-data.history
