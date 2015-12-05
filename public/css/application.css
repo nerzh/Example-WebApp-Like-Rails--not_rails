@@ -73,6 +73,11 @@ body
 }
 form[name="form_start"]
 {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,10 +85,15 @@ form[name="form_start"]
 }
 form[name="form_enter_code"]
 {
-    display: flex;
+    display: -webkit-flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    display: flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
 }
 input[name="enter_code"]
 {
@@ -91,10 +101,15 @@ input[name="enter_code"]
 }
 .history
 {
-    display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: stretch;
 
     border-radius: 7px 7px 7px 7px;
     border: 1px solid #C7C7C7;
@@ -103,6 +118,11 @@ input[name="enter_code"]
 }
 .history-line
 {
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: space-around;
+    -webkit-align-items: stretch;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -110,6 +130,9 @@ input[name="enter_code"]
 }
 .number
 {
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+
     display: flex;
     justify-content: center;
 
@@ -117,6 +140,9 @@ input[name="enter_code"]
 }
 .result
 {
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+
     display: flex;
     justify-content: center;
 
@@ -125,6 +151,11 @@ input[name="enter_code"]
 }
 control
 {
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: space-around;
+    -webkit-align-items: stretch;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -135,10 +166,15 @@ control
 }
 hint
 {
-    display: flex;
+    display: -webkit-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    display: flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
 
     width: 100%;
     letter-spacing: 5px;
