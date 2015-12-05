@@ -86,14 +86,14 @@ form[name="form_start"]
 form[name="form_enter_code"]
 {
     display: -webkit-flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    display: flex;
     -webkit-flex-direction: row;
     -webkit-justify-content: center;
     -webkit-align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 input[name="enter_code"]
 {
@@ -102,14 +102,15 @@ input[name="enter_code"]
 .history
 {
     display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: stretch;
+
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
 
-    display: flex;
-    -webkit-flex-direction: column;
-    -webkit-justify-content: center;
-    -webkit-align-items: stretch;
 
     border-radius: 7px 7px 7px 7px;
     border: 1px solid #C7C7C7;
@@ -167,14 +168,14 @@ control
 hint
 {
     display: -webkit-flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    display: flex;
     -webkit-flex-direction: column;
     -webkit-justify-content: center;
     -webkit-align-items: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     width: 100%;
     letter-spacing: 5px;
