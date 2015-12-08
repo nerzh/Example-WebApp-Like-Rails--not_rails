@@ -70,22 +70,27 @@ class GameController < BaseController
   end
 
   def create
-    unless @user = User.where(name: params['name'], surname: params['surname']).first
-      @user = User.new(name: params['name'], surname: params['surname'], age: params['age'])
+    begin
+      unless @user = User.where(name: params['name'], surname: params['surname']).first
+        @user = User.new(name: params['name'], surname: params['surname'], age: params['age'])
+      end
+      @sgame = Game.new( code: game.code, length: game.length, level: game.level, turns: game.turns,
+                       hint: game.hint, win: game.win, level_name: game.level_name )
+
+      game.hints.each { |hint| @hint = Hint.new(hint: hint); @sgame.hints << @hint }
+      
+      game.history.each do |story|
+        @story = Story.new(secret_code: story[0], human_code: story[1], result: story[2])
+        @sgame.stories << @story
+      end
+
+      @user.games << @sgame
+      @user.save!
+
+      redirect '/exit'
+    rescue StandardError => ex
+      @error = ex.message
+      render 'info'
     end
-    @sgame = Game.new( code: game.code, length: game.length, level: game.level, turns: game.turns,
-                     hint: game.hint, win: game.win, level_name: game.level_name )
-
-    game.hints.each { |hint| @hint = Hint.new(hint: hint); @sgame.hints << @hint }
-    
-    game.history.each do |story|
-      @story = Story.new(secret_code: story[0], human_code: story[1], result: story[2])
-      @sgame.stories << @story
-    end
-
-    @user.games << @sgame
-    @user.save!
-
-    redirect '/exit'
   end
 end

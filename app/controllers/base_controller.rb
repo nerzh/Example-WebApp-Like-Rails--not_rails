@@ -1,9 +1,4 @@
-# Dir["app/models/*"].each {|file| require_relative file }
 require 'active_record'
-require_relative '../models/game'
-require_relative '../models/user'
-require_relative '../models/story'
-require_relative '../models/hint'
 
 class BaseController
   attr_reader :env, :request, :response, :game
@@ -42,3 +37,13 @@ class BaseController
     request.params
   end
 end
+
+class ActiveRecord::Base
+  VALID_SYMBOLS = '(\w|а|б|в|г|д|е|ё|ж|з|и|й|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я|А|Б|В|Г|Д|Е|Ё|Ж|З|И|Й|К|Л|М|Н|О|П|Р|С|Т|У|Ф|Х|Ц|Ч|Ш|Щ|Ъ|Ы|Ь|Э|Ю|Я)'
+end
+
+# Dir["app/models/*"].each {|file| require_relative file }
+require_relative '../models/game'
+require_relative '../models/user'
+require_relative '../models/story'
+require_relative '../models/hint'
