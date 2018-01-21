@@ -14,3 +14,4 @@
 /.byebug_history
 /shared
 /config/database.yml
+/config/puma.rb

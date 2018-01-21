@@ -1,49 +1,5 @@
-require 'active_record'
-
-class BaseController
-  attr_reader :env, :request, :response, :game
-
-  def initialize(env)
-    @env = env
-    @request  = Rack::Request.new(env)
-    @response = Rack::Response.new
-    
-    dbconfig = YAML::load(File.open(File.join(File.dirname(__FILE__), '..', '..', 'config', 'database.yml')))
-    ActiveRecord::Base.logger = Logger.new(STDERR)
-    ActiveRecord::Base.establish_connection(dbconfig['development'])
-
-    @game = @request.session[:game] if @request.session[:game].class == GameCodebreaker::Game
-  end
-
-  def render(template = '')
-    self.class.to_s.downcase =~ /^(.+)controller$/
-    name_controller = $1
-    template = caller_locations.first.label if template == ''
-
-    path = File.expand_path("../../views/#{name_controller}/#{template.to_s}.html.haml", __FILE__)
-    path_layout = File.expand_path("../../views/layout.html.haml", __FILE__)
-    
-    block = lambda{ Haml::Engine.new(File.read(path)).render(binding) }
-    response.body = [ Haml::Engine.new(File.read(path_layout)).render { block.call } ]
-    response
-  end
-
-  def redirect(url)
-    response.redirect(url)
-    response
-  end
-
-  def params
-    request.params
+class BaseController < Controller::Base
+  def game
+    @request.session[:game] if @request.session[:game].class == GameCodebreaker::Game
   end
 end
-
-class ActiveRecord::Base
-  VALID_SYMBOLS = '(\w|а|б|в|г|д|е|ё|ж|з|и|й|к|л|м|н|о|п|р|с|т|у|ф|х|ц|ч|ш|щ|ъ|ы|ь|э|ю|я|А|Б|В|Г|Д|Е|Ё|Ж|З|И|Й|К|Л|М|Н|О|П|Р|С|Т|У|Ф|Х|Ц|Ч|Ш|Щ|Ъ|Ы|Ь|Э|Ю|Я)'
-end
-
-# Dir["app/models/*"].each {|file| require_relative file }
-require_relative '../models/game'
-require_relative '../models/user'
-require_relative '../models/story'
-require_relative '../models/hint'
