@@ -1,14 +1,14 @@
 module SimpleApp
-
+  
   def self.require_all(dirs)
-    begin
-      dirs.each do |dir|
-        self.class_eval do
+    dirs.each do |dir|
+      self.class_eval do
+        begin
           require_relative '.' << dir
+        rescue LoadError => ex
+          p ex
         end
       end
-    rescue LoadError => ex
-      p ex
     end
   end
 
