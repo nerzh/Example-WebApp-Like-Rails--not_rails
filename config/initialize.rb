@@ -18,5 +18,4 @@ module SimpleApp
   dbconfig = YAML::load(File.open(File.join(File.dirname(__FILE__), 'database.yml')))
   ActiveRecord::Base.logger = Logger.new(STDERR)
   ActiveRecord::Base.establish_connection(dbconfig['development'])
-
 end
